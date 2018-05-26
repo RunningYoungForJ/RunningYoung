@@ -11,7 +11,7 @@
 * [Java](java/readme.md)
 * [Spring](spring/readme.md)
 * [Database](db/readme.md)
-* [算法](alg/readme.md)
+* [Algorithm](alg/readme.md)
 * [work](work/readme.md)
 
 
