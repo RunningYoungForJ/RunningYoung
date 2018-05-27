@@ -9,9 +9,17 @@
     * [IntelliJ Idea安装与配置](env/idea-env.md)
     * [GitBook安装与配置](env/gitbook-env.md)
 * [Java](java/readme.md)
+    * [JVM笔记](java/jvm.md)
+        * [JVM内存管理模型](java/JVM内存管理模型.md)
+        * [GC和内存分配策略](java/GC和内存分配策略.md)
+        * [JVM类加载器](java/JVM类加载器.md)
+        * [JVM类加载机制](java/JVM类加载机制.md)
+        * [JVM字节码执行引擎](java/JVM字节码执行引擎.md)
 * [Spring](spring/readme.md)
 * [Database](db/readme.md)
+    * [MySQL部分](db/MySQL部分.md)
+        * [基础知识](db/基础知识.md)
 * [Algorithm](alg/readme.md)
+    * [排序算法总结](alg/排序算法总结.md)
 * [work](work/readme.md)
-
 
