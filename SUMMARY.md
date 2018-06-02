@@ -25,8 +25,9 @@
     * [MySQL部分](db/mysql/MySQL部分.md)
         * [基础知识](db/mysql/基础知识.md)
     * [SQL基础教程-读书笔记](db/note/SQL基础教程.md)
-        * [查询基础](db/note/SQL基础教程-查询基础.md)
+        * [Chapter2-查询基础](db/note/SQL基础教程-查询基础.md)
 * [Algorithm](alg/readme.md)
     * [排序算法总结](alg/排序算法总结.md)
 * [work](work/readme.md)
+
 
