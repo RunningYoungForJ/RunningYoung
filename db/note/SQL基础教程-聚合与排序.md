@@ -87,3 +87,91 @@
 
 
 
+###Section2-对表进行分组
+
+> 通过使用聚合函数和Group by，可以对表先进行分组，然后在每一组中分别使用聚合函数。
+>
+> 聚合键/列中存在NULL时，会以空行显示。
+>
+> Group by子句中不能使用Select子句中列的别名。
+>
+> Group by子句的聚合结果是无序的。
+>
+> Where子句中不能使用聚合函数。
+
+
+
+####Group by子句
+
+1. Group by子句
+
+   ```sql
+   SELECT product_type, COUNT(*) FROM product GROUP BY product_type;
+   ```
+
+   如果不使用Group by子句，会将表中所有符合条件的行做为一组来进行聚合函数操作。使用Group by后，会根据分组参数，进行分组，然后才会执行聚合函数，只不过这个时候，就是针对每一组分别使用聚合函数。
+
+2. 聚合键/列：Group by的参数。
+
+3. 在Group by子句中，也可以包含多个聚合键/列，使用逗号分隔。
+
+4. Gourp by子句的位置：在from子句之后，如果有where子句，则应该在where子句之后。
+
+
+
+#### 聚合键/列中存在NULL的情况
+
+聚合键/列中包含NULL时，在结果中会以不确定行（空行）的结果表示。
+
+
+
+#### 使用WHERE子句时，Group by子句的执行结果
+
+1. 会先根据Where子句进行过滤，然后针对过滤后的结果集进行Group by分组操作。
+
+   ```sql
+   SELECT purchase_price, COUNT(*) FROM product WHERE product_type = '衣服' GROUP BY purchase_price;
+   ```
+
+2. SQL语句的执行顺序：From—Where—Group—Select。
+
+
+
+#### 与聚合函数以及Group by子句有关的常见错误
+
+1. 在使用Group by的时候，Select子句中的列只能有三种选择：
+
+   - 常数
+   - 聚合函数
+   - Group by中指定的分组列
+
+   把Group by聚合键之外的列名写在Select子句中，会报错，如下：
+
+   ```Sql
+   SELECT purchase_price,product_name, COUNT(*) FROM product WHERE product_type = '衣服' GROUP BY purchase_price;
+   ```
+
+   因此，**需要注意的是：使用Group by子句时，Select子句中不能使用聚合键之外的列名。**
+
+2. 在Group by子句中写了列的别名。
+
+   由于Group by子句先于Select子句执行，因此在Group by执行时，还不知道别名对应的列是哪一个。
+
+3. Group by之后的分组结果，能排序吗？
+
+   Group by分组之后的结果，每一组中数据排列是随机的。
+
+4. 在Where子句中使用聚合函数
+
+   ```sql
+   SELECT purchase_price,product_name, COUNT(*) FROM product WHERE COUNT(*)=2 GROUP BY purchase_price;
+   ```
+
+   **注意：只有Select子句、Having、Order by子句中可以使用COUNT等聚合函数。**
+
+5. DISTINCT和Group by作用在同一个列上，都可以起到删除重复数据的结果。
+
+
+
+
+
